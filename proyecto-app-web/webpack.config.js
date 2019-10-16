@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const dotenv = require('dotenv');
 const TerserPlugin = require('terser-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 dotenv.config();
 
@@ -40,8 +41,8 @@ module.exports = {
                 },
             },
         },
-        minimize: true,
-        minimizer: [new TerserPlugin()],
+        minimize: isProduction ? true : false,
+        minimizer: isProduction ? [new TerserPlugin()] : [],
     },
     module: {
         rules: [
@@ -93,5 +94,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'assets/app.css',
         }),
+        isProduction ? new CompressionPlugin({
+            test: /\.js$|\.css$/,
+            filename: '[path].gz',
+        }) : false,
     ],
 };

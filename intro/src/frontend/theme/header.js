@@ -6,7 +6,7 @@ const Header = (props) => {
     return (
         <header className="header">
             <h1 className="header-title">
-                Aplicaciones Web con React
+                {props.tituloMenu}
             </h1>
         </header>
     );
