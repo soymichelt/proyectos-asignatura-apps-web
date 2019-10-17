@@ -66,8 +66,6 @@ class InicioContenedor extends Component {
 
         const { datos } = this.state;
 
-        console.log(datos);
-
         return (
             <Inicio
                 imagenes={datos}
