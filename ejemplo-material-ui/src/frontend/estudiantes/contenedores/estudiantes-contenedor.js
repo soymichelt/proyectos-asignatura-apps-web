@@ -25,14 +25,21 @@ class EstudiantesContenedor extends Component {
         ];
 
         this.state = {
+            estudianteseleccionado: "",
             datos: estudiantes,
         };
     }
 
+    cambiarseleccionado=(valor) => {
+        this.setState({estudianteseleccionado:valor})
+    }
+
     render() {
-        const { datos } = this.state;
+        const { datos, estudianteseleccionado } = this.state;
         return (
             <Estudiantes
+                seleccionar={this.cambiarseleccionado}
+                seleccionado={estudianteseleccionado}
                 listado={datos}
             />
         );

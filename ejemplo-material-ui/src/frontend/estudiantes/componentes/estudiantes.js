@@ -3,16 +3,27 @@ import './estudiantes.css';
 
 const Estudiantes = (props) => {
 
-    const { listado } = props;
+    const { listado, seleccionado, seleccionar } = props;
 
     return (
         <div>
             {
                 listado.map(
                     (item) => {
-
+                        /*if (seleccionado===item.nombre)*/
                         return (
-                            <div
+                            <div onClick={()=> seleccionar(item.nombre)}
+                                key={item.nombre}
+                                className={ seleccionado===item.nombre ? 'estudiante-seleccionado' : 'un-estudiante' }
+                            >
+                                <p>{item.nombre}</p>
+                                <p>{item.apellidos}</p>
+                                <p>{item.edad}</p>
+                            </div>
+                        );
+                        /*else
+                        return (
+                            <div onClick={()=> seleccionar(item.nombre)}
                                 key={item.nombre}
                                 className='un-estudiante'
                             >
@@ -20,7 +31,7 @@ const Estudiantes = (props) => {
                                 <p>{item.apellidos}</p>
                                 <p>{item.edad}</p>
                             </div>
-                        );
+                        );*/
 
                     }
                 )
