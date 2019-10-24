@@ -9,10 +9,11 @@ const Listado = (props) => {
     return (
         <div className='listado'>
             {
-                imagenes.map(item => {
+                imagenes.map(imagen => {
                     return (
                         <Item
-                            dato={item}
+                            key={imagen.titulo}
+                            dato={imagen}
                         />
                     );
                 })
