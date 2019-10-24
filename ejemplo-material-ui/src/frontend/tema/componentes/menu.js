@@ -20,9 +20,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Menu = () => {
-
     const classes = useStyles();
-    
     return (
         <>
             <AppBar
@@ -49,7 +47,6 @@ const Menu = () => {
             <div className={classes.espacioMenu} />
         </>
     );
-    
 }
 
 export default Menu;
