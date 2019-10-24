@@ -1,0 +1,27 @@
+.contenido {
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
+
+.galeria-imagen {
+    position: relative;
+}
+
+.galeria-imagen .imagen {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.galeria-imagen .titulo {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: rgba(0,0,0,.4);
+    width: 100%;
+    margin: 0;
+    margin-bottom: 4px;
+}
