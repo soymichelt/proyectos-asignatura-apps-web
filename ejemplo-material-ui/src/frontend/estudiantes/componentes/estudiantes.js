@@ -17,8 +17,6 @@ const Estudiantes = (props) => {
                                 className='un-estudiante'
                             >
                                 <p>{item.nombre}</p>
-                                <p>{item.apellidos}</p>
-                                <p>{item.edad}</p>
                             </div>
                         );
 
