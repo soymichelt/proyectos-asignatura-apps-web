@@ -17,8 +17,6 @@ const Estudiantes = (props) => {
                                 className={ seleccionado===item.nombre ? 'estudiante-seleccionado' : 'un-estudiante' }
                             >
                                 <p>{item.nombre}</p>
-                                <p>{item.apellidos}</p>
-                                <p>{item.edad}</p>
                             </div>
                         );
                         /*else

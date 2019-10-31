@@ -7,21 +7,6 @@ class EstudiantesContenedor extends Component {
         super(props);
 
         const estudiantes = [
-            {
-                nombre: 'Esther',
-                apellidos: 'Duarte',
-                edad: 20,
-            },
-            {
-                nombre: 'Selena',
-                apellidos: 'Gómez',
-                edad: 20,
-            },
-            {
-                nombre: 'Jehovany',
-                apellidos: 'Romero',
-                edad: 26,
-            },
         ];
 
         this.state = {
@@ -43,6 +28,19 @@ class EstudiantesContenedor extends Component {
                 listado={datos}
             />
         );
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:5000')
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data)
+        })
+        .catch(error => {
+            console.log('Error:', error);
+        });
     }
 
 }
