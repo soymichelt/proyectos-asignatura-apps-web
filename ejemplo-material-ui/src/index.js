@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Estudiantes from './frontend/estudiantes/contenedores/estudiantes-contenedor';
 import Inicio from './frontend/inicio/contenedores/inicio-container';
 import Perfil from './frontend/perfil/contenedores/perfil-container';
 import Prueba from './frontend/inicio/componentes/pruebas';
