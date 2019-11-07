@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Inicio from './inicio';
+import Perfil from './perfil/contenedores/perfil-container';
 
-ReactDOM.render(<Inicio />, document.getElementById('app'));
+ReactDOM.render(<Perfil />, document.getElementById('app'));
