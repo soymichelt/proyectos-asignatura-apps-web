@@ -88,7 +88,7 @@ const Portada = (props) => {
                 <h1
                     className={classes.nombre}
                 >
-                    Traña Michael
+                    Traña Michael5
                 </h1>
                 <h2
                     className={classes.descripcion}
