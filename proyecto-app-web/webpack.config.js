@@ -11,11 +11,15 @@ dotenv.config();
 const isProduction = (process.env.NODE_ENV === 'production');
 
 module.exports = {
-    devtool: isProduction ? 'hidden-source-map' : 'cheap-source-map',
     entry: './src/frontend/index.js',
+    devtool: isProduction
+            ? 'hidden-source-map'
+            : 'cheap-source-map',
     mode: process.env.NODE_ENV,
     output: {
-        path: isProduction ? path.join(process.cwd(), './src/server/public') : '/',
+        path: isProduction
+            ? path.join(process.cwd(), './src/server/public')
+            : '/',
         filename: 'assets/app.js',
         publicPath: '/',
     },
@@ -35,8 +39,16 @@ module.exports = {
                     filename: 'assets/vendor.js',
                     enforce: true,
                     test(module, chunks) {
-                        const name = module.nameForCondition && module.nameForCondition();
-                        return chunks.some(chunks => chunks.name !== 'vendor' && /[\\/]node_modules[\\/]/.test(name));
+                        const name = module.nameForCondition
+                            && module.nameForCondition();
+                        return chunks.some(
+                            (chunks) => {
+                                return (
+                                    chunks.name !== 'vendor' &&
+                                        /[\\/]node_modules[\\/]/.test(name)
+                                );
+                            }
+                        );
                     },
                 },
             },
@@ -98,6 +110,6 @@ module.exports = {
         isProduction ? new CompressionPlugin({
             test: /\.js$|\.css$/,
             filename: '[path].gz',
-        }) : false,
+        }) : () => {},
     ],
 };
