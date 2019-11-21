@@ -3,11 +3,10 @@ import {
   BrowserRouter,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 import Perfil from './../perfil/contenedores/perfil-container';
-import Estudiantes from './../estudiantes/contenedores/estudiantes-contenedor';
+import PerfilAgregar from './../perfil-agregar/contenedores/perfil-agregar-contenedor';
 import NotFound404 from './../404/componentes/404';
 
 const AppRoutes = () => {
@@ -16,7 +15,7 @@ const AppRoutes = () => {
         <BrowserRouter>
             <Switch>
                 <Route exact path='/' component={Perfil} />
-                <Route exact path='/estudiantes' component={Estudiantes} />
+                <Route exact path='/agregar' component={PerfilAgregar} />
                 <Route component={NotFound404} />
             </Switch>
         </BrowserRouter>

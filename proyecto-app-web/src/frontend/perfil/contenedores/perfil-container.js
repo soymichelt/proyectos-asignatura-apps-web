@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Perfil from '../componentes/perfil';
+import { obtenerPublicaciones } from './../../../lib/data/perfil-data';
 
 class PerfilContenedor extends Component {
 
@@ -74,6 +75,16 @@ class PerfilContenedor extends Component {
             />
         );
 
+    }
+
+    async componentDidMount() {
+        const publicaciones = await obtenerPublicaciones();
+
+        console.log("componentDidMount: Cargando datos de firestore");
+        
+        this.setState({
+            datos: publicaciones,
+        });
     }
 
 }

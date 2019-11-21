@@ -11,5 +11,8 @@
                 "babel-plugin-transform-object-assign"
             ]
         }
-    }
+    },
+    "plugins": [
+        "@babel/plugin-transform-runtime"
+    ]
 }

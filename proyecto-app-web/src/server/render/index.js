@@ -11,7 +11,6 @@ const render = (html, styles) => {
                     ${styles}
                 </style>
                 <link rel="stylesheet" href="assets/app.css" type="text/css" />
-                <link />
             </head>
             <body>
                 <div id="app">

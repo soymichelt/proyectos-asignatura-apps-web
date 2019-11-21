@@ -16,12 +16,14 @@ const Galeria = (props) => {
                 justify='center'
             >
                 <Grid
+                    item
                     xs={11}
                     sm={10}
                     md={8}
                 >
                     <Grid
                         container
+                        justify='center'
                         spacing={1}
                         className='galeria'
                     >
@@ -30,9 +32,9 @@ const Galeria = (props) => {
                                 
                                 return (
                                     <Grid
+                                        key={dato.titulo}
                                         item
                                         xs={4}
-                                        justify='center'
                                     >
                                         <GaleriaImagen
                                             dato={dato}
