@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Perfil from './perfil/contenedores/perfil-container';
+import { Router } from 'react-router';
+import { createBroserHistory } from 'history';
+import AppRoutes from './routes/app-routes';
 import './index.css';
+
 const App = () => {
     React.useEffect(() => {
         const jssStyles = document.getElementById('jss-server-side');
@@ -10,7 +13,14 @@ const App = () => {
         }
     }, []);
     return (
-        <Perfil />
+        <AppRoutes />
     );
 }
-ReactDOM.hydrate(<App />, document.getElementById('app'));
+
+const history = createBroserHistory();
+
+ReactDOM.hydrate(
+    <Router history={history}>
+        <App />
+    </Router>
+, document.getElementById('app'));
