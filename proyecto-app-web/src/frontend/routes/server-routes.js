@@ -16,7 +16,6 @@ const serverRoutes = [
     },
     {
         path: '/eliminar/:publicacionId',
-        exact: true,
         component: PerfilEliminar,
     },
     {

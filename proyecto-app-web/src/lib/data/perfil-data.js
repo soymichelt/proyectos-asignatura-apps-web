@@ -14,6 +14,17 @@ export const obtenerPublicaciones = async () => {
     return publicaciones;
 }
 
+export const seleccionarPublicacion = async (publicacionId) => {
+    const querySnapshot = await db.collection(CLAVE_PUBLICACIONES).doc(publicacionId).get();
+    let publicacion = {};
+    if(querySnapshot.exists) {
+        publicacion = {
+            ...querySnapshot.data()
+        };
+    }
+    return publicacion;
+}
+
 export const guardarPublicacion = async (publicacion) => {
     await db.collection(CLAVE_PUBLICACIONES).add(
         publicacion

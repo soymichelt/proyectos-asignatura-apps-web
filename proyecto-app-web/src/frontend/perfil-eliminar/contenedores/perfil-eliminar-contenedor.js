@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PerfilEliminar from '../componentes/perfil-eliminar';
-import { eliminarPublicacion } from './../../../lib/data/perfil-data';
+import {
+    eliminarPublicacion,
+    seleccionarPublicacion,
+} from './../../../lib/data/perfil-data';
 import { Redirect } from 'react-router-dom';
 
 class PerfilEliminarContenedor extends Component {
@@ -8,6 +11,8 @@ class PerfilEliminarContenedor extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            titulo: '',
+            imagen: '',
             redirect: '',
         };
     }
@@ -27,13 +32,10 @@ class PerfilEliminarContenedor extends Component {
     render() {
 
         const {
-            redirect,
-        } = this.state;
-        
-        const {
             titulo,
             imagen,
-        } = this.props;
+            redirect,
+        } = this.state;
 
         if(redirect !== '') {
             return (
@@ -51,6 +53,17 @@ class PerfilEliminarContenedor extends Component {
             />
         );
 
+    }
+
+    async componentDidMount() {
+        const { publicacionId } = this.props.match.params;
+        console.log(`Publicación Id: ${publicacionId}`);
+        const publicacion = await seleccionarPublicacion(publicacionId);
+        const { titulo, imagen, } = publicacion;
+        this.setState({
+            titulo,
+            imagen,
+        });
     }
 
 }

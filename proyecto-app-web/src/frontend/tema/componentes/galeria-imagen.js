@@ -8,26 +8,36 @@ const GaleriaImagen = (props) => {
     const { dato } = props;
 
     return (
-        <article className='galeria-imagen'>
-            <h1
-                className='titulo'
-            >
-                {dato.titulo}
-            </h1>
-            <img
-                className='imagen'
-                src={dato.imagen}
-                alt={dato.titulo}
-            />
+        <div>
+            <article className='galeria-imagen'>
+                <h1
+                    className='titulo'
+                >
+                    {dato.titulo}
+                </h1>
+                <img
+                    className='imagen'
+                    src={dato.imagen}
+                    alt={dato.titulo}
+                />
+            </article>
             <Button
                 variant="contained"
+                color="secondary"
+                component={ Link }
+                to={`/editar/${dato.id}`}
+            >
+                Editar
+            </Button>
+            <Button
+                variant="outlined"
                 color="secondary"
                 component={ Link }
                 to={`/eliminar/${dato.id}`}
             >
                 Eliminar
             </Button>
-        </article>
+        </div>
     );
 
 };

@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
     container: {
         padding: theme.spacing(1),
     },
-    textField: {
+    image: {
         width: '100%',
     },
 }));
@@ -49,7 +49,7 @@ const PerfilEliminar = (props) => {
                                 xs={12}
                             >
                                 <p>
-                                    <b>Nombre del Anime</b>
+                                    <b>Nombre del Anime</b> 
                                     {titulo}
                                 </p>
                             </Grid>
@@ -58,6 +58,7 @@ const PerfilEliminar = (props) => {
                                 xs={12}
                             >
                                 <img
+                                    className={classes.image}
                                     src={imagen}
                                 />
                             </Grid>
