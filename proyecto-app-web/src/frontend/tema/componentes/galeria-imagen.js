@@ -1,5 +1,7 @@
 import React from 'react';
 import './galeria-imagen.css';
+import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const GaleriaImagen = (props) => {
 
@@ -17,6 +19,14 @@ const GaleriaImagen = (props) => {
                 src={dato.imagen}
                 alt={dato.titulo}
             />
+            <Button
+                variant="contained"
+                color="secondary"
+                component={ Link }
+                to={`/eliminar/${dato.id}`}
+            >
+                Eliminar
+            </Button>
         </article>
     );
 

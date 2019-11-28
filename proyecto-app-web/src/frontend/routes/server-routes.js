@@ -1,5 +1,6 @@
 import Perfil from './../perfil/contenedores/perfil-container';
 import PerfilAgregar from './../perfil-agregar/contenedores/perfil-agregar-contenedor';
+import PerfilEliminar from './../perfil-eliminar/contenedores/perfil-eliminar-contenedor';
 import NotFound404 from './../404/componentes/404';
 
 const serverRoutes = [
@@ -12,6 +13,11 @@ const serverRoutes = [
         path: '/agregar',
         exact: true,
         component: PerfilAgregar,
+    },
+    {
+        path: '/eliminar/:publicacionId',
+        exact: true,
+        component: PerfilEliminar,
     },
     {
         name: 'NotFound404',

@@ -1,4 +1,4 @@
-import firebase from './index';
+import firebase from './firebase-config';
 import 'firebase/firestore';
 
 var db = firebase.firestore();

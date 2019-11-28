@@ -15,8 +15,17 @@ export const obtenerPublicaciones = async () => {
 }
 
 export const guardarPublicacion = async (publicacion) => {
-    console.log('Publicación: ',publicacion);
     await db.collection(CLAVE_PUBLICACIONES).add(
         publicacion
     );
+}
+
+export const actualizarPublicacion = async (publicacionId, publicacion) => {
+    await db.collection(CLAVE_PUBLICACIONES).doc(publicacionId).update(
+        publicacion
+    );
+}
+
+export const eliminarPublicacion = async (publicacionId) => {
+    await db.collection(CLAVE_PUBLICACIONES).doc(publicacionId).delete();
 }
