@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import Perfil from '../componentes/perfil';
 import { obtenerPublicaciones } from './../../../lib/data/perfil-data';
+import {
+    onAuthChanged,
+    signout,
+} from './../../../lib/data/user-data';
+import {
+    Redirect,
+} from 'react-router-dom';
 
 class PerfilContenedor extends Component {
 
@@ -60,6 +67,7 @@ class PerfilContenedor extends Component {
 
         this.state = {
             datos: datos,
+            estado: '',
         };
     }
 
@@ -67,11 +75,24 @@ class PerfilContenedor extends Component {
 
         const { datos } = this.state;
 
-        console.log(datos);
+        const {
+            estado,
+            usuario,
+        } = this.state;
+
+        if(estado === 'no-autorizado') {
+            return (
+                <Redirect
+                    to='/login'
+                />
+            );
+        }
 
         return (
             <Perfil
                 publicaciones={datos}
+                usuario={usuario}
+                cerrarSesion={this.cerrarSesion}
             />
         );
 
@@ -80,12 +101,37 @@ class PerfilContenedor extends Component {
     async componentDidMount() {
         const publicaciones = await obtenerPublicaciones();
 
-        console.log("componentDidMount: Cargando datos de firestore");
+        this.escucharAutenticacion();
         
         this.setState({
             datos: publicaciones,
         });
     }
+
+    escucharAutenticacion = () => {
+        onAuthChanged((usuario) => {
+            if(!usuario) {
+                this.setState({
+                    estado: 'no-autorizado',
+                });
+            }
+            else {
+                this.setState({
+                    usuario: usuario,
+                });
+            }
+        });
+    };
+
+    cerrarSesion = () => {
+        signout()
+        .then(() => {
+            console.log("Cerró la sesión");
+        })
+        .catch((error) => {
+            console.log("Error al salir", error);
+        });
+    };
 
 }
 

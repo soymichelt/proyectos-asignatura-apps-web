@@ -5,11 +5,18 @@ import PieDePagina from './pie-de-pagina';
 
 const Tema = (props) => {
 
-    const { children } = props;
+    const {
+        children,
+        usuario,
+        cerrarSesion,
+    } = props;
 
     return (
         <>
-            <Menu />
+            <Menu
+                usuario={usuario}
+                cerrarSesion={cerrarSesion}
+            />
             <section className='contenido'>
                 {children}
             </section>

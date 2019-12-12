@@ -2,6 +2,7 @@ import Perfil from './../perfil/contenedores/perfil-container';
 import PerfilAgregar from './../perfil-agregar/contenedores/perfil-agregar-contenedor';
 import PerfilEliminar from './../perfil-eliminar/contenedores/perfil-eliminar-contenedor';
 import NotFound404 from './../404/componentes/404';
+import Login from './../login/containers/login-container';
 
 const serverRoutes = [
     {
@@ -17,6 +18,10 @@ const serverRoutes = [
     {
         path: '/eliminar/:publicacionId',
         component: PerfilEliminar,
+    },
+    {
+        path: '/login',
+        component: Login,
     },
     {
         name: 'NotFound404',

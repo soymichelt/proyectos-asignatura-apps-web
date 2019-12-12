@@ -9,10 +9,17 @@ import Grid from '@material-ui/core/Grid';
 
 const Perfil = (props) => {
 
-    const { publicaciones } = props;
+    const {
+        publicaciones,
+        usuario,
+        cerrarSesion,
+    } = props;
 
     return (
-        <Tema>
+        <Tema
+            usuario={usuario}
+            cerrarSesion={cerrarSesion}
+        >
             <Grid
                 container
                 justify='center'

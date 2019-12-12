@@ -24,8 +24,15 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Menu = () => {
+const Menu = (props) => {
+
     const classes = useStyles();
+
+    const {
+        usuario,
+        cerrarSesion,
+    } = props;
+
     return (
         <>
             <AppBar
@@ -54,6 +61,14 @@ const Menu = () => {
                     >
                         Añadir Anime
                     </Button>
+                    {usuario && (
+                        <Button
+                            color="inherit"
+                            onClick={cerrarSesion}
+                        >
+                            {usuario.email}
+                        </Button>
+                    )}
                 </Toolbar>
             </AppBar>
             <div className={classes.espacioMenu} />
